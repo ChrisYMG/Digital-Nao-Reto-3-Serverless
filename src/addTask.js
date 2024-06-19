@@ -3,6 +3,7 @@ const { v4 } = require('uuid');
 const AWS = require('aws-sdk');
 
 const addTask = async (e) => {
+    console.log("Entra a task!")
 
     const dynamodb = new AWS.DynamoDB.DocumentClient();
 
@@ -20,6 +21,7 @@ const addTask = async (e) => {
     await dynamodb.put({
         TableName: "TaskTable",
         Item: newTask
+        
         
     }).promise();
 
