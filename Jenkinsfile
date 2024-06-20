@@ -24,7 +24,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying...'
-                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', aws-pipeline-credentials: 'aws-pipeline-credentials']]) {
+                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-pipeline-credentials']]) {
                 // Aquí van los pasos para desplegar tu proyecto
                 // Desplegar usando Serverless Framework
                 sh 'serverless deploy'
