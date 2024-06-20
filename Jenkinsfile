@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        AWS_ACCESS_KEY_ID = credentials('aws-credentials').accessKey
-        AWS_SECRET_ACCESS_KEY = credentials('aws-credentials').secretKey
-    }
-
     stages {
         stage('Build') {
             steps {
@@ -25,10 +20,11 @@ pipeline {
         }
         stage('Deploy') {
             when {
-                branch 'master'
+                branch 'main'
             }
             steps {
                 echo 'Deploying...'
+                 withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-pipeline-credentials']]) {
                 // Aquí van los pasos para desplegar tu proyecto
                 // Desplegar usando Serverless Framework
                 sh 'serverless deploy'
