@@ -3,7 +3,7 @@ const { v4 } = require('uuid');
 const AWS = require('aws-sdk');
 
 const addTask = async (e) => {
-    console.log("Entra a task!")
+    console.log("Entra a task! carga el pipeline")
 
     const dynamodb = new AWS.DynamoDB.DocumentClient();
 
