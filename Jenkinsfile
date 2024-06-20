@@ -12,7 +12,9 @@ pipeline {
                 echo 'Building...'
                 // Aquí van los pasos para construir tu proyecto
                 // Por ejemplo, si estás usando Node.js:
+                sh 'chmod -R 777 .' // Otorga permisos temporales (cuidado con usar 777 en producción)
                 sh 'npm install'
+                sh 'chmod -R 755 .' // Restaura los permisos
             }
         }
         stage('Test') {
