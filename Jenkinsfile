@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/home/ubuntu/.nvm/versions/node/v20.14.0/bin:${env.PATH}"
+        NVM_BIN = "/home/ubuntu/.nvm/versions/node/v20.14.0/bin"
+    }
+    /home/ubuntu/.nvm/versions/node/v20.14.0/bin/node
+
     stages {
         stage('Build') {
             steps {
