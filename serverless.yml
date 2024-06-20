@@ -31,6 +31,13 @@ functions:
           path: /tasks
           method: post
 
+    createTask2:
+    handler: src/addTask.addTask2
+    events:
+      - httpApi:
+          path: /tasks2
+          method: post
+
 resources:
   Resources:
     TaskTable:
